@@ -1,0 +1,49 @@
+{
+  "env": {
+    "FROM": "YOUR_TWILIO_NUMBER",
+    "TWILIO_ACCOUNT_SID": "YOUR_TWILIO_ACCOUNT_SID",
+    "TWILIO_AUTH_TOKEN": "YOUR_TWILIO_AUTH_TOKEN",
+    "DB_NAME": "joule-node-local-db",
+    "DB_PREFIX": "prefix",
+    "AWS_ACCESS_KEY_ID": "see_joule_website",
+    "AWS_SECRET_ACCESS_KEY": "see_joule_website"
+  },
+  "events": {
+    "POST": {
+			"/joule/username/users": [
+				{"email":"user@example.com","username":"example_user"}
+			]
+    },
+    "PUT": {
+      "/joule/username/users/user@example.com": [
+        {"username": "example_user_changed"}
+      ],
+      "/joule/username/users/": [
+        {"username": "example_user_changed"}
+      ]
+    },
+    "GET": {
+      "/joule/username/users/user@example.com": [
+        {}
+      ],
+      "/joule/username/users/unknown-user@example.com": [
+        {}
+      ],
+      "/joule/username/users": [
+        {}
+      ],
+      "/joule/username/unknown-component": [
+        {}
+      ]
+    },
+    "DELETE": {
+      "/joule/username/users": [
+        {}
+      ],
+      "/joule/username": [
+        {}
+      ]
+    }
+  }
+}
+
